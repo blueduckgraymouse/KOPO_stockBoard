@@ -40,7 +40,12 @@
       text-align: right;
     }
     .pagination {
-      margin:0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .space-view {
+      height: 380px;
     }
   </style>
   <%
@@ -77,27 +82,31 @@
 
     <h1>재고 확인 시스템</h1>
 
-    <table class="table-view">
-      <tr class="title">
-        <td width="50px"><b>상품번호</b></td>
-        <td width="200px"><b>상품명</b></td>
-        <td width="50px"><b>현재 재고수</b></td>
-        <td width="100px"><b>재고 파악일</b></td>
-        <td width="100px"><b>상품 등록일</b></td>
-      </tr>
-      <%
-        while(rset2.next()) {
-          out.println("<tr>");											
-          out.println("<td>" + rset2.getInt("pid") + "</td>");
-          out.println("<td><a href='stock_view.jsp?id=" + rset2.getString("pid") + "'>" + rset2.getString("pname") + "</a></td>");
-          out.println("<td>" + rset2.getInt("pstock") + "</td>");
-          out.println("<td>" + rset2.getDate("chkdate") + "</td>");
-          out.println("<td>" + rset2.getDate("regdate") + "</td>");
-          out.println("</tr>");
-        }
-      %>
-    </table>
-
+    <div class="space-view">
+      <table class="table-view">
+        <tr class="title">
+          <td width="100px"><b>상품번호</b></td>
+          <td width="200px"><b>상품명</b></td>
+          <td width="100px"><b>재고 현황</b></td>
+          <td width="100px"><b>재고 파악일</b></td>
+          <td width="100px"><b>상품 등록일</b></td>
+        </tr>
+        <%
+          while(rset2.next()) {
+            out.println("<tr>");											
+            out.println("<td>" + rset2.getInt("pid") + "</td>");
+            out.println("<td><a href='stock_view.jsp?id=" + rset2.getString("pid") + "'>" + rset2.getString("pname") + "</a></td>");
+            out.println("<td>" + rset2.getInt("pstock") + "</td>");
+            out.println("<td>" + rset2.getDate("chkdate") + "</td>");
+            out.println("<td>" + rset2.getDate("regdate") + "</td>");
+            out.println("</tr>");
+          }
+        %>
+      </table>
+    </div>
+    <div class="div-button">
+      <input type="button" value="신규" onclick="window.location='stock_insertForm.jsp'">
+    </div>
     <br>
 
     <div class="pagination">
@@ -145,11 +154,6 @@
       %>
     </div>
 
-    <br>
-
-    <div class="div-button">
-      <input type="button" value="신규" onclick="window.location='stock_insertForm.jsp'">
-    </div>
   </div>
   <%	
     rset2.close();

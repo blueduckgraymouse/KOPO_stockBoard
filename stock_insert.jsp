@@ -36,14 +36,14 @@
 
     } catch (Exception e) { }
     
-    // DB 트렌젝션
+
+    // DB에 저장
     int pid = Integer.parseInt(multipartRequest.getParameter("pid"));
     String pname = multipartRequest.getParameter("pname");
     int pstock = Integer.parseInt(multipartRequest.getParameter("pstock"));
     String regdate = multipartRequest.getParameter("regdate");
     String chkdate = multipartRequest.getParameter("chkdate");
     String pcontent = multipartRequest.getParameter("pcontent");
-    
     
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/kopoctc", "root", "abcd1234");	

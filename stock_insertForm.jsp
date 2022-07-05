@@ -44,10 +44,13 @@
     }
     textarea {
       width: 450px; 
-      height: 250px;
+      height: 50px;
     }
     div.div-button {
       text-align: right;
+    }
+    img {
+      width: 99%;
     }
     </style>
     <%
@@ -103,9 +106,14 @@
           </td>
         </tr>
         <tr>
-          <td class="title"><b>상품 사진</b></td>
+          <td class="title"><b>상품 업로드</b></td>
           <td>
             <input type="file" name="imgname" onchange="showThumbnail(this, 'thumbnail')">
+          </td>
+        </tr>
+        <tr height="481px">
+          <td class="title"><b>상품 사진</b></td>
+          <td>
             <img id="thumbnail">
           </td>
         </tr>

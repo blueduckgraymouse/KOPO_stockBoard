@@ -50,6 +50,9 @@
       border: none;
       resize: none;
     }
+    img {
+      width: 99%;
+    }
   </style>
   <%
     int id = Integer.parseInt(request.getParameter("id"));
@@ -102,7 +105,7 @@
           <textarea><%= rset.getString("pcontent")%></textarea>
         </td>
       </tr>
-      <tr>
+      <tr height="481px">
         <td class="title"><b>상품 사진</b></td>
         <td><img src="./img/<%= rset.getString("imgname")%>"></td>
       </tr>

@@ -35,7 +35,8 @@
           files = folder.listFiles();
 
           for (File file : files) {
-            folder.delete();
+            out.println("삭제");
+            file.delete();
           }
       }
   } catch (Exception e) {
@@ -44,7 +45,7 @@
   %>
   <script>
     alert("삭제 완료");
-    window.location.href = "stock_list.jsp";
+   window.location.href = "stock_list.jsp";
   </script>
 </head>
 
